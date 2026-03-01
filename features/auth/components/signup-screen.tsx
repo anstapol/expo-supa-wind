@@ -56,13 +56,15 @@ export function SignupScreen() {
 				</Text>
 
 				{displayError && (
-					<Text className="mb-4 text-center text-danger">{displayError}</Text>
+					<Text className="mb-4 text-center text-destructive">
+						{displayError}
+					</Text>
 				)}
 
 				<TextInput
-					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
+					className="mb-4 rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground"
 					placeholder="Email"
-					placeholderTextColor="rgb(var(--color-muted))"
+					placeholderTextColor="hsl(var(--muted-foreground))"
 					value={email}
 					onChangeText={setEmail}
 					autoCapitalize="none"
@@ -71,9 +73,9 @@ export function SignupScreen() {
 				/>
 
 				<TextInput
-					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
+					className="mb-4 rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground"
 					placeholder="Password"
-					placeholderTextColor="rgb(var(--color-muted))"
+					placeholderTextColor="hsl(var(--muted-foreground))"
 					value={password}
 					onChangeText={setPassword}
 					secureTextEntry
@@ -81,9 +83,9 @@ export function SignupScreen() {
 				/>
 
 				<TextInput
-					className="mb-6 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
+					className="mb-6 rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground"
 					placeholder="Confirm password"
-					placeholderTextColor="rgb(var(--color-muted))"
+					placeholderTextColor="hsl(var(--muted-foreground))"
 					value={confirmPassword}
 					onChangeText={setConfirmPassword}
 					secureTextEntry
@@ -91,14 +93,16 @@ export function SignupScreen() {
 				/>
 
 				<Pressable
-					className="mb-4 items-center rounded-lg bg-primary py-3 active:bg-primary/80"
+					className="mb-4 items-center rounded-lg bg-primary py-3 active:opacity-80"
 					onPress={handleSubmit}
 					disabled={isLoading}
 				>
 					{isLoading ? (
 						<ActivityIndicator color="white" />
 					) : (
-						<Text className="text-base font-semibold text-white">Sign up</Text>
+						<Text className="text-base font-semibold text-primary-foreground">
+							Sign up
+						</Text>
 					)}
 				</Pressable>
 

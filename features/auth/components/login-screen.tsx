@@ -40,12 +40,14 @@ export function LoginScreen() {
 					Welcome back
 				</Text>
 
-				{error && <Text className="mb-4 text-center text-danger">{error}</Text>}
+				{error && (
+					<Text className="mb-4 text-center text-destructive">{error}</Text>
+				)}
 
 				<TextInput
-					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
+					className="mb-4 rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground"
 					placeholder="Email"
-					placeholderTextColor="rgb(var(--color-muted))"
+					placeholderTextColor="hsl(var(--muted-foreground))"
 					value={email}
 					onChangeText={setEmail}
 					autoCapitalize="none"
@@ -54,9 +56,9 @@ export function LoginScreen() {
 				/>
 
 				<TextInput
-					className="mb-6 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
+					className="mb-6 rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground"
 					placeholder="Password"
-					placeholderTextColor="rgb(var(--color-muted))"
+					placeholderTextColor="hsl(var(--muted-foreground))"
 					value={password}
 					onChangeText={setPassword}
 					secureTextEntry
@@ -64,14 +66,16 @@ export function LoginScreen() {
 				/>
 
 				<Pressable
-					className="mb-4 items-center rounded-lg bg-primary py-3 active:bg-primary/80"
+					className="mb-4 items-center rounded-lg bg-primary py-3 active:opacity-80"
 					onPress={handleSubmit}
 					disabled={isLoading}
 				>
 					{isLoading ? (
 						<ActivityIndicator color="white" />
 					) : (
-						<Text className="text-base font-semibold text-white">Sign in</Text>
+						<Text className="text-base font-semibold text-primary-foreground">
+							Sign in
+						</Text>
 					)}
 				</Pressable>
 
