@@ -1,0 +1,46 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.action.useSortedKeys.biome": "explicit",
+		"source.fixAll.biome": "explicit",
+		"source.organizeImports.biome": "explicit"
+	},
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.formatOnSave": true,
+
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		".env": ".env.*",
+		"*.ts": "${capture}.js,${capture}.d.ts.map,${capture}.d.ts,${capture}.js.map",
+		"*.tsx": "${capture}.ts,${capture}.js",
+		"package.json": "bun.lock,bun.lockb",
+		"tailwind.config.*": "postcss.config.*",
+		"tsconfig.json": "tsconfig.*.json,expo-env.d.ts"
+	},
+
+	"files.exclude": {
+		"**/.DS_Store": true,
+		"**/.git": true
+	},
+	"files.watcherExclude": {
+		"**/.git/**": true,
+		"**/node_modules/**": true
+	},
+	"search.exclude": {
+		"**/node_modules": true,
+		"bun.lock": true
+	},
+
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+		["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+		["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+	],
+	"tailwindCSS.includeLanguages": {
+		"typescript": "javascript",
+		"typescriptreact": "javascript"
+	},
+
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"typescript.updateImportsOnFileMove.enabled": "always"
+}
