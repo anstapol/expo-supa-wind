@@ -1,4 +1,4 @@
-# Eubite
+# Expo Supa Wind
 
 Mobile app built with Expo (React Native), TypeScript, and Supabase.
 
