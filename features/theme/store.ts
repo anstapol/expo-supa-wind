@@ -1,25 +1,8 @@
-import { Platform } from "react-native";
 import { create } from "zustand";
+import { secureStorage } from "~/features/infra/secure-storage";
 import type { ThemePreference } from "./types";
 
 const STORAGE_KEY = "theme-preference";
-
-async function getStoredValue(key: string): Promise<string | null> {
-	if (Platform.OS === "web") {
-		return localStorage.getItem(key);
-	}
-	const SecureStore = await import("expo-secure-store");
-	return SecureStore.getItemAsync(key);
-}
-
-async function setStoredValue(key: string, value: string): Promise<void> {
-	if (Platform.OS === "web") {
-		localStorage.setItem(key, value);
-		return;
-	}
-	const SecureStore = await import("expo-secure-store");
-	await SecureStore.setItemAsync(key, value);
-}
 
 type SetColorScheme = (value: "light" | "dark" | "system") => void;
 
@@ -44,7 +27,7 @@ export const useThemeStore = create<ThemeStore>((set) => ({
 
 	actions: {
 		initialize: async (setColorScheme) => {
-			const stored = await getStoredValue(STORAGE_KEY);
+			const stored = await secureStorage.getItem(STORAGE_KEY);
 			const preference = (stored as ThemePreference) ?? "system";
 			setColorScheme(preference);
 			set({ preference, isLoaded: true });
@@ -53,7 +36,7 @@ export const useThemeStore = create<ThemeStore>((set) => ({
 		setPreference: async (preference, setColorScheme) => {
 			setColorScheme(preference);
 			set({ preference });
-			await setStoredValue(STORAGE_KEY, preference);
+			await secureStorage.setItem(STORAGE_KEY, preference);
 		},
 	},
 }));
