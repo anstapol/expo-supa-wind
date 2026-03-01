@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Eubite — Expo (SDK 54) + TypeScript (strict) + Supabase mobile app. Uses Bun, Biome (not ESLint), expo-router.
+Expo (SDK 54) + TypeScript (strict) + Supabase mobile app. Uses Bun, Biome (not ESLint), expo-router, NativeWind 4, React Native Reusables (shadcn).
 
 ## Commands
 
