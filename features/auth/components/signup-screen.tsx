@@ -48,21 +48,21 @@ export function SignupScreen() {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
-			className="flex-1"
+			className="flex-1 bg-background"
 		>
 			<View className="flex-1 justify-center px-8">
-				<Text className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-gray-100">
+				<Text className="mb-8 text-center text-3xl font-bold text-foreground">
 					Create account
 				</Text>
 
 				{displayError && (
-					<Text className="mb-4 text-center text-red-500">{displayError}</Text>
+					<Text className="mb-4 text-center text-danger">{displayError}</Text>
 				)}
 
 				<TextInput
-					className="mb-4 rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
 					placeholder="Email"
-					placeholderTextColor="#9ca3af"
+					placeholderTextColor="rgb(var(--color-muted))"
 					value={email}
 					onChangeText={setEmail}
 					autoCapitalize="none"
@@ -71,9 +71,9 @@ export function SignupScreen() {
 				/>
 
 				<TextInput
-					className="mb-4 rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
 					placeholder="Password"
-					placeholderTextColor="#9ca3af"
+					placeholderTextColor="rgb(var(--color-muted))"
 					value={password}
 					onChangeText={setPassword}
 					secureTextEntry
@@ -81,9 +81,9 @@ export function SignupScreen() {
 				/>
 
 				<TextInput
-					className="mb-6 rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+					className="mb-6 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
 					placeholder="Confirm password"
-					placeholderTextColor="#9ca3af"
+					placeholderTextColor="rgb(var(--color-muted))"
 					value={confirmPassword}
 					onChangeText={setConfirmPassword}
 					secureTextEntry
@@ -91,7 +91,7 @@ export function SignupScreen() {
 				/>
 
 				<Pressable
-					className="mb-4 items-center rounded-lg bg-blue-600 py-3 active:bg-blue-700"
+					className="mb-4 items-center rounded-lg bg-primary py-3 active:bg-primary/80"
 					onPress={handleSubmit}
 					disabled={isLoading}
 				>
@@ -104,7 +104,7 @@ export function SignupScreen() {
 
 				<Link href="/login" asChild>
 					<Pressable className="items-center py-2">
-						<Text className="text-base text-blue-600">
+						<Text className="text-base text-primary">
 							Already have an account? Sign in
 						</Text>
 					</Pressable>

@@ -3,6 +3,7 @@ import { Slot, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { useAuthActions, useAuthLoading, useSession } from "~/features/auth";
+import { ThemeInitializer } from "~/features/theme";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -38,5 +39,10 @@ function RootNavigator() {
 }
 
 export default function RootLayout() {
-	return <RootNavigator />;
+	return (
+		<>
+			<ThemeInitializer />
+			<RootNavigator />
+		</>
+	);
 }

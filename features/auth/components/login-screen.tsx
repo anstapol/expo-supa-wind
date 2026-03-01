@@ -33,21 +33,19 @@ export function LoginScreen() {
 	return (
 		<KeyboardAvoidingView
 			behavior={Platform.OS === "ios" ? "padding" : "height"}
-			className="flex-1"
+			className="flex-1 bg-background"
 		>
 			<View className="flex-1 justify-center px-8">
-				<Text className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-gray-100">
+				<Text className="mb-8 text-center text-3xl font-bold text-foreground">
 					Welcome back
 				</Text>
 
-				{error && (
-					<Text className="mb-4 text-center text-red-500">{error}</Text>
-				)}
+				{error && <Text className="mb-4 text-center text-danger">{error}</Text>}
 
 				<TextInput
-					className="mb-4 rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+					className="mb-4 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
 					placeholder="Email"
-					placeholderTextColor="#9ca3af"
+					placeholderTextColor="rgb(var(--color-muted))"
 					value={email}
 					onChangeText={setEmail}
 					autoCapitalize="none"
@@ -56,9 +54,9 @@ export function LoginScreen() {
 				/>
 
 				<TextInput
-					className="mb-6 rounded-lg border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+					className="mb-6 rounded-lg border border-muted/30 bg-surface px-4 py-3 text-base text-foreground"
 					placeholder="Password"
-					placeholderTextColor="#9ca3af"
+					placeholderTextColor="rgb(var(--color-muted))"
 					value={password}
 					onChangeText={setPassword}
 					secureTextEntry
@@ -66,7 +64,7 @@ export function LoginScreen() {
 				/>
 
 				<Pressable
-					className="mb-4 items-center rounded-lg bg-blue-600 py-3 active:bg-blue-700"
+					className="mb-4 items-center rounded-lg bg-primary py-3 active:bg-primary/80"
 					onPress={handleSubmit}
 					disabled={isLoading}
 				>
@@ -79,7 +77,7 @@ export function LoginScreen() {
 
 				<Link href="/signup" asChild>
 					<Pressable className="items-center py-2">
-						<Text className="text-base text-blue-600">
+						<Text className="text-base text-primary">
 							Don't have an account? Sign up
 						</Text>
 					</Pressable>
