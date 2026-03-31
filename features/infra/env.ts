@@ -5,7 +5,10 @@ const envSchema = z.object({
 	EXPO_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
 });
 
-const env = envSchema.parse(process.env);
+const env = envSchema.parse({
+	EXPO_PUBLIC_SUPABASE_URL: process.env.EXPO_PUBLIC_SUPABASE_URL,
+	EXPO_PUBLIC_SUPABASE_ANON_KEY: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
+});
 
 export default env;
 
