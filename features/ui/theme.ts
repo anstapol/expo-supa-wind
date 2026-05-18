@@ -1,0 +1,71 @@
+import { DarkTheme, DefaultTheme, type Theme } from "@react-navigation/native";
+
+export const THEME = {
+	light: {
+		background: "hsl(75 40% 98%)",
+		foreground: "hsl(222 47.4% 11.2%)",
+		card: "hsl(0 0% 100%)",
+		cardForeground: "hsl(222 47.4% 11.2%)",
+		popover: "hsl(0 0% 100%)",
+		popoverForeground: "hsl(222 47.4% 11.2%)",
+		primary: "hsl(83 88.3% 59.8%)",
+		primaryForeground: "hsl(0 0% 0%)",
+		secondary: "hsl(215 25% 26.7%)",
+		secondaryForeground: "hsl(210 40% 98%)",
+		muted: "hsl(210 40% 96.1%)",
+		mutedForeground: "hsl(215 16.3% 46.9%)",
+		accent: "hsl(138 76.5% 96.7%)",
+		accentForeground: "hsl(143 64.2% 24.1%)",
+		destructive: "hsl(0 84.2% 60.2%)",
+		border: "hsl(214 31.8% 91.4%)",
+		input: "hsl(214 31.8% 91.4%)",
+		ring: "hsl(83 88.3% 59.8%)",
+		radius: "1rem",
+	},
+	dark: {
+		background: "hsl(229 84% 4.9%)",
+		foreground: "hsl(210 40% 98%)",
+		card: "hsl(222 47.4% 11.2%)",
+		cardForeground: "hsl(210 40% 98%)",
+		popover: "hsl(222 47.4% 11.2%)",
+		popoverForeground: "hsl(210 40% 98%)",
+		primary: "hsl(83 88.3% 59.8%)",
+		primaryForeground: "hsl(0 0% 0%)",
+		secondary: "hsl(217 32.6% 17.5%)",
+		secondaryForeground: "hsl(210 40% 98%)",
+		muted: "hsl(217 32.6% 17.5%)",
+		mutedForeground: "hsl(215 20.2% 65.1%)",
+		accent: "hsl(144 61.2% 20.2%)",
+		accentForeground: "hsl(83 88.3% 59.8%)",
+		destructive: "hsl(0 70% 35.3%)",
+		border: "hsl(217 32.6% 17.5%)",
+		input: "hsl(217 32.6% 17.5%)",
+		ring: "hsl(83 88.3% 59.8%)",
+		radius: "1rem",
+	},
+};
+
+export const NAV_THEME: Record<"light" | "dark", Theme> = {
+	light: {
+		...DefaultTheme,
+		colors: {
+			background: THEME.light.background,
+			border: THEME.light.border,
+			card: THEME.light.card,
+			notification: THEME.light.destructive,
+			primary: THEME.light.primary,
+			text: THEME.light.foreground,
+		},
+	},
+	dark: {
+		...DarkTheme,
+		colors: {
+			background: THEME.dark.background,
+			border: THEME.dark.border,
+			card: THEME.dark.card,
+			notification: THEME.dark.destructive,
+			primary: THEME.dark.primary,
+			text: THEME.dark.foreground,
+		},
+	},
+};
